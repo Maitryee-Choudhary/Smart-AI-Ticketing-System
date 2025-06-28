@@ -1,0 +1,152 @@
+ AgentResult {
+  agentName: 'AI Ticket Triage Assitant',
+  output: [
+    {
+      role: 'assistant',
+      type: 'text',
+      content: '```json\n' +
+        '{\n' +
+        `  "summary": "The ticket reports an issue with the 'inggest' server, but the description is too vague to understand the exact problem.",\n` +
+        '  "priority": "high",\n' +
+        `  "helpfulNotes": "The ticket lacks specific details about the issue. To effectively address it, the following information is needed:\\n\\n1.  **Clear Problem Description:** What is the exact problem with the 'inggest' server? Is it crashing, experiencing performance issues, failing to start, or exhibiting unexpected behavior?\\n2.  **Error Messages:** Include any error messages or logs related to the issue. These are crucial for diagnosing the root cause.\\n3.  **Steps to Reproduce:** Provide step-by-step instructions on how to reproduce the issue. This will help in isolating and resolving the problem.\\n4.  **Configuration Details:** Share relevant configuration details of the 'inggest' server, such as the operating system, version, and any custom configurations.\\n5.  **Recent Changes:** Has there been any recent changes to the server or its environment that might have triggered the issue?\\n\\nWithout this information, it is impossible to provide specific troubleshooting steps.  Request the user to provide more details.\\n\\nGeneral troubleshooting steps that can be applied after more info is available:\\n\\n*   **Check Server Logs:** Examine the server logs for any error messages or warnings that might indicate the cause of the problem.\\n*   **Monitor Server Resources:** Monitor CPU usage, memory usage, disk I/O, and network traffic to identify any resource bottlenecks.\\n*   **Restart the Server:** Sometimes, simply restarting the server can resolve temporary glitches.\\n*   **Check Dependencies:** Ensure that all dependencies required by the 'inggest' server are installed and functioning correctly.\\n*   **Review Documentation:** Consult the documentation for the 'inggest' server for troubleshooting information and best practices.\\n\\nUseful resource links:\\n\\n*   [Troubleshooting network issues](https://www.digitalocean.com/community/tutorials/how-to-troubleshoot-common-network-problems)\\n*   [Troubleshooting high CPU usage](https://www.solarwinds.com/solutions/cpu-monitoring/troubleshooting-high-cpu-usage)",\n` +
+        '  "relatedSkills": [\n' +
+        '    "Server Administration",\n' +
+        '    "Troubleshooting",\n' +
+        '    "Log Analysis",\n' +
+        '    "Networking",\n' +
+        '    "System Monitoring"\n' +
+        '  ]\n' +
+        '}\n' +
+        '```'
+    }
+  ],
+  toolCalls: [],
+  createdAt: 2025-06-20T10:53:26.736Z,
+  prompt: [
+    {
+      type: 'text',
+      role: 'system',
+      content: 'You are an expert AI assistant that process\n' +
+        '            technical support tickets.\n' +
+        '            Your job is to:\n' +
+        '            1. Summarise the issue\n' +
+        '            2. Estimate its priority\n' +
+        '            3. Provide helpful notes and resource links for human moderators\n' +
+        '            4. List relevant technical skills required\n' +
+        '\n' +
+        '            IMPORTANT:\n' +
+        '            - Respond with *only* valid raw JSON\n' +
+        '            - DO NOT include markdown, code fences, comments or any extra formatting\n' +
+        '            - The format must be raw JSON object\n' +
+        '\n' +
+        '            Repeat: DO NOT wrap your output in markdown or code fences.\n' +
+        '            '
+    },
+    {
+      type: 'text',
+      role: 'user',
+      content: 'You are a ticket triage agent. Only return a strict \n' +
+        '             JSON object with no extra text, header and markdown.\n' +
+        '             Analyse the following support ticket and provide JSON object with:\n' +
+        '\n' +
+        '             -summary: A short 1-2 sentence summary of issue\n' +
+        '             -priority: One of "low", "medium", "high".\n' +
+        '             -helpfulNotes: A detailed technical explanation that a moderator can  use to solve \n' +
+        '             this issue. Include useful external links or resources or docs if possible\n' +
+        '             - relatedSkills: An array of relevant skills required to solve issue. Eg: ["Javascript"]\n' +
+        '            \n' +
+        '             RESPOND ONLY in this JSON format and do not include any other text\n' +
+        '             {\n' +
+        '               "summary": "Short summary of ticket",\n' +
+        '               "priority":"high",\n' +
+        '               "helpfulNotes":"Here are useful links",\n' +
+        '               "relatedSkills: ["React", "C++"]\n' +
+        '             }\n' +
+        '\n' +
+        '             --Ticket Information\n' +
+        '             -Title : inggest\n' +
+        '             -Description: inggest server\n' +
+        '            \n' +
+        '             '
+    }
+  ],
+  history: [],
+  raw: '{"candidates":[{"avgLogprobs":-0.2874729347965432,"content":{"parts":[{"text":"```json\\n{\\n  \\"summary\\": \\"The ticket reports an issue with the \'inggest\' server, but the description is too vague to understand the exact problem.\\",\\n  \\"priority\\": \\"high\\",\\n  \\"helpfulNotes\\": \\"The ticket lacks specific details about the issue. To effectively address it, the following information is needed:\\\\n\\\\n1.  **Clear Problem Description:** What is the exact problem with the \'inggest\' server? Is it crashing, experiencing performance issues, failing to start, or exhibiting unexpected behavior?\\\\n2.  **Error Messages:** Include any error messages or logs related to the issue. These are crucial for diagnosing the root cause.\\\\n3.  **Steps to Reproduce:** Provide step-by-step instructions on how to reproduce the issue. This will help in isolating and resolving the problem.\\\\n4.  **Configuration Details:** Share relevant configuration details of the \'inggest\' server, such as the operating system, version, and any custom configurations.\\\\n5.  **Recent Changes:** Has there been any recent changes to the server or its environment that might have triggered the issue?\\\\n\\\\nWithout this information, it is impossible to provide specific troubleshooting steps.  Request the user to provide more details.\\\\n\\\\nGeneral troubleshooting steps that can be applied after more info is available:\\\\n\\\\n*   **Check Server Logs:** Examine the server logs for any error messages or warnings that might indicate the cause of the problem.\\\\n*   **Monitor Server Resources:** Monitor CPU usage, memory usage, disk I/O, and network traffic to identify any resource bottlenecks.\\\\n*   **Restart the Server:** Sometimes, simply restarting the server can resolve temporary glitches.\\\\n*   **Check Dependencies:** Ensure that all dependencies required by the \'inggest\' server are installed and functioning correctly.\\\\n*   **Review Documentation:** Consult the documentation for the \'inggest\' server for troubleshooting information and best practices.\\\\n\\\\nUseful resource links:\\\\n\\\\n*   [Troubleshooting network issues](https://www.digitalocean.com/community/tutorials/how-to-troubleshoot-common-network-problems)\\\\n*   [Troubleshooting high CPU usage](https://www.solarwinds.com/solutions/cpu-monitoring/troubleshooting-high-cpu-usage)\\",\\n  \\"relatedSkills\\": [\\n    \\"Server Administration\\",\\n    \\"Troubleshooting\\",\\n    \\"Log Analysis\\",\\n    \\"Networking\\",\\n    \\"System Monitoring\\"\\n  ]\\n}\\n```"}],"role":"model"},"finishReason":"STOP"}],"modelVersion":"gemini-2.0-flash","responseId":"oj1VaL2dJcConvgPtJy7mQU","usageMetadata":{"candidatesTokenCount":518,"candidatesTokensDetails":[{"modality":"TEXT","tokenCount":518}],"promptTokenCount":330,"promptTokensDetails":[{"modality":"TEXT","tokenCount":330}],"totalTokenCount":848}}'
+}
+Failed to parse JSON from AI resp Cannot read properties of undefined (reading 'match')
+Analyzing ticket with AI agent 68553da13d2fae46cdc91285
+AI Response: AgentResult {
+  agentName: 'AI Ticket Triage Assitant',
+  output: [
+    {
+      role: 'assistant',
+      type: 'text',
+      content: '```json\n' +
+        '{\n' +
+        `  "summary": "The ticket reports an issue with the 'inggest' server, but the description is too vague to understand the exact problem.",\n` +
+        '  "priority": "high",\n' +
+        `  "helpfulNotes": "The ticket lacks specific details about the issue. To effectively address it, the following information is needed:\\n\\n1.  **Clear Problem Description:** What is the exact problem with the 'inggest' server? Is it crashing, experiencing performance issues, failing to start, or exhibiting unexpected behavior?\\n2.  **Error Messages:** Include any error messages or logs related to the issue. These are crucial for diagnosing the root cause.\\n3.  **Steps to Reproduce:** Provide step-by-step instructions on how to reproduce the issue. This will help in isolating and resolving the problem.\\n4.  **Configuration Details:** Share relevant configuration details of the 'inggest' server, such as the operating system, version, and any custom configurations.\\n5.  **Recent Changes:** Has there been any recent changes to the server or its environment that might have triggered the issue?\\n\\nWithout this information, it is impossible to provide specific troubleshooting steps.  Request the user to provide more details.\\n\\nGeneral troubleshooting steps that can be applied after more info is available:\\n\\n*   **Check Server Logs:** Examine the server logs for any error messages or warnings that might indicate the cause of the problem.\\n*   **Monitor Server Resources:** Monitor CPU usage, memory usage, disk I/O, and network traffic to identify any resource bottlenecks.\\n*   **Restart the Server:** Sometimes, simply restarting the server can resolve temporary glitches.\\n*   **Check Dependencies:** Ensure that all dependencies required by the 'inggest' server are installed and functioning correctly.\\n*   **Review Documentation:** Consult the documentation for the 'inggest' server for troubleshooting information and best practices.\\n\\nUseful resource links:\\n\\n*   [Troubleshooting network issues](https://www.digitalocean.com/community/tutorials/how-to-troubleshoot-common-network-problems)\\n*   [Troubleshooting high CPU usage](https://www.solarwinds.com/solutions/cpu-monitoring/troubleshooting-high-cpu-usage)",\n` +
+        '  "relatedSkills": [\n' +
+        '    "Server Administration",\n' +
+        '    "Troubleshooting",\n' +
+        '    "Log Analysis",\n' +
+        '    "Networking",\n' +
+        '    "System Monitoring"\n' +
+        '  ]\n' +
+        '}\n' +
+        '```'
+    }
+  ],
+  toolCalls: [],
+  createdAt: 2025-06-20T10:53:26.888Z,
+  prompt: [
+    {
+      type: 'text',
+      role: 'system',
+      content: 'You are an expert AI assistant that process\n' +
+        '            technical support tickets.\n' +
+        '            Your job is to:\n' +
+        '            1. Summarise the issue\n' +
+        '            2. Estimate its priority\n' +
+        '            3. Provide helpful notes and resource links for human moderators\n' +
+        '            4. List relevant technical skills required\n' +
+        '\n' +
+        '            IMPORTANT:\n' +
+        '            - Respond with *only* valid raw JSON\n' +
+        '            - DO NOT include markdown, code fences, comments or any extra formatting\n' +
+        '            - The format must be raw JSON object\n' +
+        '\n' +
+        '            Repeat: DO NOT wrap your output in markdown or code fences.\n' +
+        '            '
+    },
+    {
+      type: 'text',
+      role: 'user',
+      content: 'You are a ticket triage agent. Only return a strict \n' +
+        '             JSON object with no extra text, header and markdown.\n' +
+        '             Analyse the following support ticket and provide JSON object with:\n' +
+        '\n' +
+        '             -summary: A short 1-2 sentence summary of issue\n' +
+        '             -priority: One of "low", "medium", "high".\n' +
+        '             -helpfulNotes: A detailed technical explanation that a moderator can  use to solve \n' +
+        '             this issue. Include useful external links or resources or docs if possible\n' +
+        '             - relatedSkills: An array of relevant skills required to solve issue. Eg: ["Javascript"]\n' +
+        '            \n' +
+        '             RESPOND ONLY in this JSON format and do not include any other text\n' +
+        '             {\n' +
+        '               "summary": "Short summary of ticket",\n' +
+        '               "priority":"high",\n' +
+        '               "helpfulNotes":"Here are useful links",\n' +
+        '               "relatedSkills: ["React", "C++"]\n' +
+        '             }\n' +
+        '\n' +
+        '             --Ticket Information\n' +
+        '             -Title : inggest\n' +
+        '             -Description: inggest server\n' +
+        '            \n' +
+        '             '
+    }
+  ],
+  history: [],
+  raw: '{"candidates":[{"avgLogprobs":-0.2874729347965432,"content":{"parts":[{"text":"```json\\n{\\n  \\"summary\\": \\"The ticket reports an issue with the \'inggest\' server, but the description is too vague to understand the exact problem.\\",\\n  \\"priority\\": \\"high\\",\\n  \\"helpfulNotes\\": \\"The ticket lacks specific details about the issue. To effectively address it, the following information is needed:\\\\n\\\\n1.  **Clear Problem Description:** What is the exact problem with the \'inggest\' server? Is it crashing, experiencing performance issues, failing to start, or exhibiting unexpected behavior?\\\\n2.  **Error Messages:** Include any error messages or logs related to the issue. These are crucial for diagnosing the root cause.\\\\n3.  **Steps to Reproduce:** Provide step-by-step instructions on how to reproduce the issue. This will help in isolating and resolving the problem.\\\\n4.  **Configuration Details:** Share relevant configuration details of the \'inggest\' server, such as the operating system, version, and any custom configurations.\\\\n5.  **Recent Changes:** Has there been any recent changes to the server or its environment that might have triggered the issue?\\\\n\\\\nWithout this information, it is impossible to provide specific troubleshooting steps.  Request the user to provide more details.\\\\n\\\\nGeneral troubleshooting steps that can be applied after more info is available:\\\\n\\\\n*   **Check Server Logs:** Examine the server logs for any error messages or warnings that might indicate the cause of the problem.\\\\n*   **Monitor Server Resources:** Monitor CPU usage, memory usage, disk I/O, and network traffic to identify any resource bottlenecks.\\\\n*   **Restart the Server:** Sometimes, simply restarting the server can resolve temporary glitches.\\\\n*   **Check Dependencies:** Ensure that all dependencies required by the \'inggest\' server are installed and functioning correctly.\\\\n*   **Review Documentation:** Consult the documentation for the \'inggest\' server for troubleshooting information and best practices.\\\\n\\\\nUseful resource links:\\\\n\\\\n*   [Troubleshooting network issues](https://www.digitalocean.com/community/tutorials/how-to-troubleshoot-common-network-problems)\\\\n*   [Troubleshooting high CPU usage](https://www.solarwinds.com/solutions/cpu-monitoring/troubleshooting-high-cpu-usage)\\",\\n  \\"relatedSkills\\": [\\n    \\"Server Administration\\",\\n    \\"Troubleshooting\\",\\n    \\"Log Analysis\\",\\n    \\"Networking\\",\\n    \\"System Monitoring\\"\\n  ]\\n}\\n```"}],"role":"model"},"finishReason":"STOP"}],"modelVersion":"gemini-2.0-flash","responseId":"oj1VaL2dJcConvgPtJy7mQU","usageMetadata":{"candidatesTokenCount":518,"candidatesTokensDetails":[{"modality":"TEXT","tokenCount":518}],"promptTokenCount":330,"promptTokensDetails":[{"modality":"TEXT","tokenCount":330}],"totalTokenCount":848}}'
+}
